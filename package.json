@@ -4,19 +4,41 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "node node_modules/jest/bin/jest --verbose --coverage",
+    "test:update": "node node_modules/jest/bin/jest --verbose --coverage --updateSnapshot",
+    "test:watch": "node node_modules/jest/bin/jest --verbose --watch",
+    "test:coverage":
+      "node node_modules/jest/bin/jest --verbose --coverage && open ./coverage/lcov-report/index.html",
+    "lint": "node node_modules/eslint/bin/eslint **/*.js",
+    "prettier": "prettier --write './**/*.js'",
+    "start:android": "react-native run-android",
+    "release": "cd android && ./gradlew assembleRelease",
+    "devtools": "adb shell input keyevent 82"
   },
   "dependencies": {
     "react": "16.3.1",
     "react-native": "0.55.3"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "babel-jest": "22.4.3",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
     "jest": "22.4.3",
+    "prettier": "^1.12.0",
     "react-test-renderer": "16.3.1"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
